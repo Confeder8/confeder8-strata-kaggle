@@ -1,4 +1,4 @@
-# 🚀 Strata on Kaggle — by DevZoneX
+# 🚀 Strata on Kaggle — by Confeder8 International
 
 [![Tests](https://github.com/confeder8/confeder8-strata-kaggle/actions/workflows/tests.yml/badge.svg)](https://github.com/confeder8/confeder8-strata-kaggle/actions/workflows/tests.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
