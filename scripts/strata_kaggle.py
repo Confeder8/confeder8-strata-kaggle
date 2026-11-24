@@ -201,7 +201,7 @@ def run_streaming(command: list[str], *, check: bool = True, timeout: int | None
                                 change = f", +{delta / (1024**2):.1f} MiB since last check"
                         details.append(f"{path}: {count} files, {size / (1024**3):.2f} GiB{change}")
                         previous_snapshots[label] = current
-                    print(f"[DevZoneX Strata] {heartbeat_label} still running ({int(now - (deadline - timeout)) if deadline and timeout else int(now - last_heartbeat)}s elapsed)."
+                    print(f"[Confeder8 Strata] {heartbeat_label} still running ({int(now - (deadline - timeout)) if deadline and timeout else int(now - last_heartbeat)}s elapsed)."
                           + (("\n  " + "\n  ".join(details)) if details else ""), flush=True)
                     last_heartbeat = now
                 continue
@@ -653,7 +653,7 @@ def restore_model_cache(owner: str, slug: str, data_dir: Path, workers: int = 8,
             percent = 100.0 if total == 0 else min(100.0, 100 * state["progress_bytes"] / total)
             speed_mib_s = state["copied_bytes"] / (1024 ** 2) / elapsed_seconds
             progress_text = (
-                f"[DevZoneX Strata] Model restore: "
+                f"[Confeder8 Strata] Model restore: "
                 f"{state['progress_bytes'] / (1024 ** 3):.2f}/{total / (1024 ** 3):.2f} GiB "
                 f"({percent:.1f}%) | {len(state['completed'])}/{total_files} files complete "
                 f"| {len(state['active'])} copying | {speed_mib_s:.1f} MiB/s "
@@ -1040,7 +1040,7 @@ def upload_runtime_cache(username: str, slug: str, env: dict[str, str], force: b
             **hw, "engine_dirs": engine_dirs, "cloudflared_version": cloudflared_version,
             "contents": ["terminal", "components", "tools/cloudflared (if present)"]}
     (stage / "runtime-manifest.json").write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")
-    _write_dataset_metadata(stage, username, slug, "DevZoneX Strata Runtime Cache",
+    _write_dataset_metadata(stage, username, slug, "Confeder8 Strata Runtime Cache",
                             "Private runtime cache for Strata terminal and engine components.")
     log(f"Runtime archive size: {archive.stat().st_size / (1024**3):.2f} GiB.")
     _upload_create_or_version(stage, username, slug, env, "Update Strata terminal and engine cache")
